@@ -27,7 +27,7 @@ public class Game {
         move = currentPlayer.getMove(board);
       }
       board.makeMove(move, currentPlayer);
-      System.out.println("Game.Player " + currentPlayer.getName() + " Has Moved");
+      System.out.println(currentPlayer.getName() + " Has Moved");
       board.drawBoard();
       currentPlayer = currentPlayer.getOpponent();
     }

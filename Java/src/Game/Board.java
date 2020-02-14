@@ -2,17 +2,18 @@ package Game;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Board<S> implements IBoard<S> {
   protected int height;
   protected int width;
-  protected Deque<S> moves ;
+  protected Deque<S> moves;
 
   public Board(int width, int height) {
     this.width = width;
     this.height = height;
-    this.moves = new ArrayDeque<>();;
+    this.moves = new ArrayDeque<>();
   }
 
   public int getHeight() {
@@ -25,20 +26,20 @@ public class Board<S> implements IBoard<S> {
 
   @Override
   public Status getStatus(Player p) {
-    if(hasWon(p)){
+    if (hasWon(p)) {
       return Status.WIN;
-    }else if(hasLost(p)){
+    } else if (hasLost(p)) {
       return Status.LOSE;
-    }else if(hasTied(p)){
+    } else if (hasTied(p)) {
       return Status.TIE;
-    }else{
+    } else {
       return Status.PLAYING;
     }
   }
 
   @Override
   public Set<S> getPossibleMoves(Player p) {
-    return null;
+    return new HashSet<>();
   }
 
   @Override
@@ -65,11 +66,8 @@ public class Board<S> implements IBoard<S> {
   public void makeMove(S move, Player p) {}
 
   @Override
-  public void undoMove(Player p) { }
-
+  public void undoMove(Player p) {}
 
   @Override
-  public void drawBoard() { }
-
-
+  public void drawBoard() {}
 }

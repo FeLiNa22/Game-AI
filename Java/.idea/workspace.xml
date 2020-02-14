@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b55d46f9-9353-4a6e-8418-d8de8aa55f37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game-AI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tuple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+    <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Agent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/FourInARow/FourInARow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/FourInARow/FourInARowBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/FourInARow/FourInARowMove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/FourInARow/FourInARowPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Game/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Game/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Game/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Game/IBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Game/Move.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Game/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AI for Games/Game/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/AI for Games/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/IBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MiniMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MiniMax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main.java" afterDir="false" />
     </list>
@@ -24,26 +32,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1XlyTHCca3S3nh8fN8rbG2tegEG" />
+  <component name="ProjectId" id="1XnbTCiiq3VmH6fbGW04f5qJD0M" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -75,11 +68,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b55d46f9-9353-4a6e-8418-d8de8aa55f37" name="Default Changelist" comment="" />
-      <created>1581634981653</created>
+      <changelist id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="" />
+      <created>1581684810447</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1581634981653</updated>
+      <updated>1581684810447</updated>
     </task>
     <servers />
   </component>

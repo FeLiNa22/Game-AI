@@ -3,6 +3,7 @@ package Game;
 import java.util.Set;
 
 public interface IBoard<S> {
+
   Status getStatus(Player p);
 
   boolean hasTied(Player p);

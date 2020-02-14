@@ -12,8 +12,6 @@ public class Agent extends Player{
 
   @Override
   public Move getMove(Board b) {
-    FourInARowMove m = minimax.getOptimalMove(b,this);
-    System.out.println(m.getCol());
-    return new FourInARowMove(3 - 1, b);
+    return minimax.getOptimalMove(b,this);
   }
 }

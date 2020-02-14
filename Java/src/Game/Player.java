@@ -1,20 +1,20 @@
 package Game;
 
-public class Player {
+public abstract class Player {
   private String name;
   private Player opponent;
   private Character mark;
 
-  public Player(String name){
+  public Player(String name) {
     this.name = name;
-  }
-
-  public void setMark(Character mark) {
-    this.mark = mark;
   }
 
   public Character getMark() {
     return mark;
+  }
+
+  public void setMark(Character mark) {
+    this.mark = mark;
   }
 
   public String getName() {
@@ -25,11 +25,11 @@ public class Player {
     return null;
   }
 
-  public void setOpponent(Player opponent){
-    this.opponent = opponent;
-  }
-
   public Player getOpponent() {
     return opponent;
+  }
+
+  public void setOpponent(Player opponent) {
+    this.opponent = opponent;
   }
 }
