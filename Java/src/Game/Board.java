@@ -23,6 +23,7 @@ public class Board<S> implements IBoard<S> {
     return width;
   }
 
+  @Override
   public Status getStatus(Player p) {
     if(hasWon(p)){
       return Status.WIN;
@@ -36,7 +37,7 @@ public class Board<S> implements IBoard<S> {
   }
 
   @Override
-  public Set<Move> getPossibleMoves(Player p) {
+  public Set<S> getPossibleMoves(Player p) {
     return null;
   }
 

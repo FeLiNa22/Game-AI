@@ -136,8 +136,8 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   }
 
   @Override
-  public Set<Move> getPossibleMoves(Player p) {
-    Set<Move> possibleMoves = new HashSet<>();
+  public Set<FourInARowMove> getPossibleMoves(Player p) {
+    Set<FourInARowMove> possibleMoves = new HashSet<>();
     for (int i = 0; i < width; i++) {
       FourInARowMove m = new FourInARowMove(i, this);
       if (isValidMove(m, p)) {

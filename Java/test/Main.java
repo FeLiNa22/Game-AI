@@ -7,7 +7,7 @@ public class Main {
     Player p1 = new Agent("AI");
     Player p2 = new FourInARowPlayer("Raul");
     Board board = new FourInARowBoard(6,6);
-    Game game = new FourInARow("Four In A Row", p1, p2, board);
+    Game game = new Game("Four In A Row", p1, p2, board);
     game.run();
   }
 }

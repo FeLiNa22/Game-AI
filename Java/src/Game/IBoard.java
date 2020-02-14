@@ -3,6 +3,7 @@ package Game;
 import java.util.Set;
 
 public interface IBoard<S> {
+  Status getStatus(Player p);
 
   boolean hasTied(Player p);
 
@@ -18,5 +19,5 @@ public interface IBoard<S> {
 
   void drawBoard();
 
-  Set<Move> getPossibleMoves(Player p);
+  Set<S> getPossibleMoves(Player p);
 }
