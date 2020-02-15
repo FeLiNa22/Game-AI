@@ -1,12 +1,12 @@
 package Game;
 
-public class Game {
+public class Game<S> {
 
   private String name;
-  private Board board;
-  private Player currentPlayer;
+  private Board<S> board;
+  private Player<S> currentPlayer;
 
-  public Game(String name, Player p1, Player p2, Board board){
+  public Game(String name, Player<S> p1, Player<S> p2, Board<S> board){
     this.name = name;
     p1.setOpponent(p2);
     p2.setOpponent(p1);
@@ -21,7 +21,7 @@ public class Game {
     System.out.println("You are Playing : " + name);
     board.drawBoard();
     while (board.getStatus(currentPlayer) == Status.PLAYING) {
-      Move move = currentPlayer.getMove(board);
+      S move = currentPlayer.getMove(board);
       while (!board.isValidMove(move,currentPlayer)) {
         System.out.println("That is an invalid move !!!");
         move = currentPlayer.getMove(board);

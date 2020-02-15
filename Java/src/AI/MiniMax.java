@@ -1,15 +1,16 @@
+package AI;
+
+import FourInARow.FourInARowMove;
 import Game.Board;
-import Game.Move;
 import Game.Player;
 import Game.Status;
-import java.util.Set;
 
 public class MiniMax<S> {
-  private final int maxDepth;
-  private final int beta;
+  private int maxDepth;
+  private int beta;
   private int alpha;
   private Board<S> board;
-  private Player player;
+  private Player<S> player;
   private S bestMove;
 
   public MiniMax(int maxDepth, int alpha, int beta) {
@@ -18,7 +19,7 @@ public class MiniMax<S> {
     this.beta = beta;
   }
 
-  public S getOptimalMove(Board<S> board, Player player) {
+  public S getOptimalMove(Board<S> board, Player<S> player) {
     this.board = board;
     this.player = player;
     Max(0, alpha, beta);
@@ -30,17 +31,18 @@ public class MiniMax<S> {
     if (depth >= maxDepth || board.getStatus(player) != Status.PLAYING) {
       return board.getStatus(player).value();
     }
-    for(S m : board.getPossibleMoves(player)){
+    for (S m : board.getPossibleMoves(player)) {
       board.makeMove(m, player);
       int res = Min(depth + 1, alpha, beta);
       board.undoMove(player);
+      board.drawBoard();
       if (res >= best) {
         best = res;
         bestMove = m;
       }
       alpha = Math.max(best, alpha);
       if (beta <= alpha) {
-        break;
+        return alpha;
       }
     }
     return best;
@@ -61,7 +63,7 @@ public class MiniMax<S> {
       }
       beta = Math.min(best, beta);
       if (beta <= alpha) {
-        break;
+        return beta;
       }
     }
     return best;

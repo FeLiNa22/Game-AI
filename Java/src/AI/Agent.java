@@ -1,9 +1,10 @@
+package AI;
+
 import FourInARow.FourInARowMove;
 import Game.Board;
-import Game.Move;
 import Game.Player;
 
-public class Agent extends Player{
+public class Agent extends Player<FourInARowMove> {
   private MiniMax<FourInARowMove> minimax;
   public Agent(String name) {
     super(name);
@@ -11,7 +12,9 @@ public class Agent extends Player{
   }
 
   @Override
-  public Move getMove(Board b) {
-    return minimax.getOptimalMove(b,this);
+  public FourInARowMove getMove(Board<FourInARowMove> b){
+    FourInARowMove move = minimax.getOptimalMove(b,this);
+  System.out.println(move.getCol());
+    return move;
   }
 }

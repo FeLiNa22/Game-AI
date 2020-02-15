@@ -6,7 +6,7 @@ public enum Status {
   TIE,
   PLAYING;
 
-  public Integer value() {
+  public int value() {
     switch (this) {
       case WIN:
         return 1;

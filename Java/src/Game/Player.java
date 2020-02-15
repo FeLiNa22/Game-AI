@@ -1,6 +1,6 @@
 package Game;
 
-public abstract class Player {
+public abstract class Player<S> {
   private String name;
   private Player opponent;
   private Character mark;
@@ -21,11 +21,11 @@ public abstract class Player {
     return name;
   }
 
-  public Move getMove(Board b) {
+  public S getMove(Board<S> b) {
     return null;
   }
 
-  public Player getOpponent() {
+  public Player<S> getOpponent() {
     return opponent;
   }
 

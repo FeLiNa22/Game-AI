@@ -97,6 +97,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
 
   @Override
   public void makeMove(FourInARowMove move, Player p) {
+    moves.push(move);
     boolean stop = false;
     for (int j = 0; j < height; j++) {
       if (j == height - 1 && !stop) {
@@ -111,13 +112,12 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   @Override
   public void undoMove(Player p) {
     if (!moves.isEmpty()) {
-      boolean stop = false;
       FourInARowMove prevMove = moves.poll();
       // Sets the top counter in a column back to '.'
       for (int j = 0; j < height; j++) {
-        if (board[j][prevMove.getCol()] != '.' && !stop) {
+        if (board[j][prevMove.getCol()] == p.getMark()) {
           board[j][prevMove.getCol()] = '.';
-          stop = true;
+          break;
         }
       }
     }
@@ -146,4 +146,5 @@ public class FourInARowBoard extends Board<FourInARowMove> {
     }
     return possibleMoves;
   }
+
 }
