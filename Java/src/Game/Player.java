@@ -29,7 +29,7 @@ public abstract class Player<S> {
     return opponent;
   }
 
-  public void setOpponent(Player opponent) {
+  public void setOpponent(Player<S> opponent) {
     this.opponent = opponent;
   }
 }

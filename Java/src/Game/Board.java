@@ -5,7 +5,7 @@ import java.util.Deque;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Board<S> implements IBoard<S> {
+public abstract class Board<S> implements IBoard<S> {
   protected int height;
   protected int width;
   protected Deque<S> moves;
@@ -22,6 +22,11 @@ public class Board<S> implements IBoard<S> {
 
   public int getWidth() {
     return width;
+  }
+
+  @Override
+  public int evaluate(Player p) {
+    return 0;
   }
 
   @Override

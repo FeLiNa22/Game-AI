@@ -21,4 +21,6 @@ public interface IBoard<S> {
   void drawBoard();
 
   Set<S> getPossibleMoves(Player p);
+
+  int evaluate(Player p);
 }

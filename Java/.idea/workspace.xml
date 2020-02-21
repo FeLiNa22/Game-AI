@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="working minimax">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AI/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AI/MiniMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/MiniMax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/IBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MiniMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/MiniMax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/Tuple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,6 +31,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -76,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581702161198</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="working minimax">
+      <created>1581742506280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581742506281</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,6 +102,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Done need to implement miniMax and AI now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done need to implement miniMax and AI now" />
+    <MESSAGE value="working minimax" />
+    <option name="LAST_COMMIT_MESSAGE" value="working minimax" />
   </component>
 </project>

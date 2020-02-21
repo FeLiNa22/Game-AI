@@ -1,6 +1,6 @@
 package Game;
 
-public class Move {
+public abstract class Move {
   private int x;
   private int y;
 

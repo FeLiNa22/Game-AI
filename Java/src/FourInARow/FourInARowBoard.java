@@ -1,7 +1,8 @@
 package FourInARow;
 
+import Game.Board;
+import Game.Player;
 import java.util.HashSet;
-import Game.*;
 import java.util.Set;
 
 public class FourInARowBoard extends Board<FourInARowMove> {
@@ -33,51 +34,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
 
   @Override
   public boolean hasWon(Player p) {
-    // Horizontal Win
-    for (int j = 0; j < height; j++) {
-      for (int i = 0; i < width - 3; i++) {
-        if (board[j][i] == p.getMark()
-            && board[j][i + 1] == p.getMark()
-            && board[j][i + 2] == p.getMark()
-            && board[j][i + 3] == p.getMark()) {
-          return true;
-        }
-      }
-    }
-    // Vertical Win
-    for (int j = 0; j < height - 3; j++) {
-      for (int i = 0; i < width; i++) {
-        if (board[j][i] == p.getMark()
-            && board[j + 1][i] == p.getMark()
-            && board[j + 2][i] == p.getMark()
-            && board[j + 3][i] == p.getMark()) {
-          return true;
-        }
-      }
-    }
-    // Diagonal top left -> bottom right
-    for (int j = 0; j < height - 3; j++) {
-      for (int i = 0; i < width - 3; i++) {
-        if (board[j][i] == p.getMark()
-            && board[j + 1][i + 1] == p.getMark()
-            && board[j + 2][i + 2] == p.getMark()
-            && board[j + 3][i + 3] == p.getMark()) {
-          return true;
-        }
-      }
-    }
-    // Diagonal top right -> bottom left
-    for (int j = 0; j < height - 3; j++) {
-      for (int i = 3; i < width; i++) {
-        if (board[j][i] == p.getMark()
-            && board[j + 1][i - 1] == p.getMark()
-            && board[j + 2][i - 2] == p.getMark()
-            && board[j + 3][i - 3] == p.getMark()) {
-          return true;
-        }
-      }
-    }
-  return false;
+    return numOfNInRow(4, p) > 0;
   }
 
   @Override
@@ -139,7 +96,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   public Set<FourInARowMove> getPossibleMoves(Player p) {
     Set<FourInARowMove> possibleMoves = new HashSet<>();
     for (int i = 0; i < width; i++) {
-      FourInARowMove m = new FourInARowMove(i, this);
+      FourInARowMove m = new FourInARowMove(i);
       if (isValidMove(m, p)) {
         possibleMoves.add(m);
       }
@@ -147,4 +104,70 @@ public class FourInARowBoard extends Board<FourInARowMove> {
     return possibleMoves;
   }
 
+  @Override
+  public int evaluate(Player p) {
+    return numOfNInRow(3,p) ;
+  }
+
+  private int numOfNInRow(int nInARow, Player p) {
+    int counter = 0;
+    // Horizontal Win
+    for (int j = 0; j < height; j++) {
+      for (int i = 0; i < width - (nInARow-1); i++) {
+        boolean rowFound = true;
+        for (int n = 0; n < nInARow; n++) {
+          if (board[j][i + n] != p.getMark()) {
+            rowFound = false;
+          }
+        }
+        if (rowFound) {
+          counter += 1;
+        }
+      }
+    }
+
+    // Vertical Win
+    for (int j = 0; j < height - (nInARow-1); j++) {
+      for (int i = 0; i < width; i++) {
+        boolean rowFound = true;
+        for (int n = 0; n < nInARow; n++) {
+          if (board[j + n][i] != p.getMark()) {
+            rowFound = false;
+          }
+        }
+        if (rowFound) {
+          counter += 1;
+        }
+      }
+    }
+    // Diagonal top left -> bottom right
+    for (int j = 0; j < height - (nInARow-1); j++) {
+      for (int i = 0; i < width -(nInARow-1); i++) {
+        boolean rowFound = true;
+        for (int n = 0; n < nInARow; n++) {
+          if (board[j + n][i + n] != p.getMark()) {
+            rowFound = false;
+          }
+        }
+        if (rowFound) {
+          counter += 1;
+        }
+      }
+    }
+    // Diagonal top right -> bottom left
+    for (int j = 0; j < height - (nInARow-1); j++) {
+      for (int i = nInARow - 1; i < width; i++) {
+        boolean rowFound = true;
+        for (int n = 0; n < nInARow; n++) {
+          if (board[j + n][i - n] != p.getMark()) {
+            rowFound = false;
+          }
+        }
+        if (rowFound) {
+          counter += 1;
+        }
+      }
+    }
+    return counter;
+  }
 }

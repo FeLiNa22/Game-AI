@@ -1,71 +1,79 @@
 package AI;
 
-import FourInARow.FourInARowMove;
 import Game.Board;
+import Game.Move;
 import Game.Player;
 import Game.Status;
 
 public class MiniMax<S> {
+  private final int MIN;
+  private final int MAX;
   private int maxDepth;
-  private int beta;
-  private int alpha;
   private Board<S> board;
-  private Player<S> player;
+  private Player player;
   private S bestMove;
 
   public MiniMax(int maxDepth, int alpha, int beta) {
     this.maxDepth = maxDepth;
-    this.alpha = alpha;
-    this.beta = beta;
+    this.MIN = alpha;
+    this.MAX = beta;
   }
 
-  public S getOptimalMove(Board<S> board, Player<S> player) {
+  public S getOptimalMove(Board<S> board, Player player) {
     this.board = board;
     this.player = player;
-    Max(0, alpha, beta);
+    mm(0, MIN, MAX, true);
     return bestMove;
   }
 
-  private int Max(int depth, int alpha, int beta) {
-    int best = -1000;
-    if (depth >= maxDepth || board.getStatus(player) != Status.PLAYING) {
-      return board.getStatus(player).value();
-    }
-    for (S m : board.getPossibleMoves(player)) {
-      board.makeMove(m, player);
-      int res = Min(depth + 1, alpha, beta);
-      board.undoMove(player);
-      board.drawBoard();
-      if (res >= best) {
-        best = res;
-        bestMove = m;
+  private int mm(int depth, int alpha, int beta, boolean maximisePlayer) {
+    // If Terminal
+    if (!board.getStatus(player).equals(Status.PLAYING)) {
+      switch (board.getStatus(player)) {
+        case WIN:
+          return MAX - depth;
+        case LOSE:
+          return MIN + depth;
+        default:
+          return 0;
       }
-      alpha = Math.max(best, alpha);
-      if (beta <= alpha) {
-        return alpha;
+      // if max depth is reached
+    } else if (depth == maxDepth) {
+      return board.evaluate(player);
+    } else if (maximisePlayer) {
+      int best = MIN;
+      for (S m : board.getPossibleMoves(player)) {
+        board.makeMove(m, player);
+        int res = mm(depth + 1, alpha, beta, false);
+        board.undoMove(player);
+        if (res > best) {
+          best = res;
+          // Gets the best Move
+          if (depth == 0) {
+            bestMove = m;
+          }
+        }
+        alpha = Math.max(best, alpha);
+        if (beta <= alpha) {
+          break;
+        }
       }
-    }
-    return best;
-  }
-
-  private int Min(int depth, int alpha, int beta) {
-    int best = 1000;
-    if (depth >= maxDepth || board.getStatus(player) != Status.PLAYING) {
-      return board.getStatus(player).value();
-    }
-    for (S m : board.getPossibleMoves(player.getOpponent())) {
-      board.makeMove(m, player.getOpponent());
-      int res = Max(depth + 1, alpha, beta);
-      board.undoMove(player.getOpponent());
-      if (res <= best) {
-        best = res;
-        bestMove = m;
+      return best;
+    } else {
+      int best = MAX;
+      for (S m : board.getPossibleMoves(player.getOpponent())) {
+        board.makeMove(m, player.getOpponent());
+        int res = mm(depth + 1, alpha, beta, true);
+        board.undoMove(player.getOpponent());
+        if (res < best) {
+          best = res;
+        }
+        beta = Math.min(best, beta);
+        if (beta <= alpha) {
+          break;
+        }
       }
-      beta = Math.min(best, beta);
-      if (beta <= alpha) {
-        return beta;
-      }
+      return best;
     }
-    return best;
   }
 }

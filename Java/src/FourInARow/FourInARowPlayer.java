@@ -16,6 +16,6 @@ public class FourInARowPlayer extends Player<FourInARowMove> {
     Scanner sc = new Scanner(System.in);
     System.out.print("Enter column : ");
     int col = sc.nextInt();
-    return new FourInARowMove(col - 1, b);
+    return new FourInARowMove(col - 1);
   }
 }
