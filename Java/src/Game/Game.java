@@ -14,6 +14,7 @@ public class Game<S> {
     p2.setMark('O');
     this.currentPlayer = p1;
     this.board = board;
+    board.initialiseBoard(p1,p2);
   }
 
 
@@ -38,9 +39,9 @@ public class Game<S> {
   private String getEndMessage() {
     switch (board.getStatus(currentPlayer)) {
       case WIN:
-        return "THE WINNER IS " + currentPlayer.getName();
+        return "THE WINNER IS " + currentPlayer.getName() + " - " + currentPlayer.getMark();
       case LOSE:
-        return "THE WINNER IS " + currentPlayer.getOpponent().getName();
+        return "THE WINNER IS " + currentPlayer.getOpponent().getName() + " - " + currentPlayer.getOpponent().getMark();
       case TIE:
         return "IT`S A TIE";
       default:

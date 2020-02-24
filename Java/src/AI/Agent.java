@@ -5,9 +5,9 @@ import Game.Player;
 
 public class Agent<S> extends Player<S> {
   private MiniMax<S> minimax;
-  public Agent(String name) {
+  public Agent(String name,int depth) {
     super(name);
-    minimax = new MiniMax<>(10,-100000,100000);
+    minimax = new MiniMax<>(depth,-100000,100000);
   }
 
   @Override

@@ -2,7 +2,7 @@ package Game;
 
 import java.util.Set;
 
-public interface IBoard<S> {
+public interface BoardTemplate<S> {
 
   Status getStatus(Player p);
 
@@ -20,7 +20,9 @@ public interface IBoard<S> {
 
   void drawBoard();
 
+  void initialiseBoard(Player p1, Player p2);
+
   Set<S> getPossibleMoves(Player p);
 
-  int evaluate(Player p);
+  int customEvaluateFunction(Player p);
 }

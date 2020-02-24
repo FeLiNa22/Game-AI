@@ -2,18 +2,26 @@ package Game;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.HashSet;
-import java.util.Set;
 
-public abstract class Board<S> implements IBoard<S> {
+public abstract class Board<S> implements BoardTemplate<S> {
   protected int height;
   protected int width;
   protected Deque<S> moves;
+  protected Character[][] board;
 
   public Board(int width, int height) {
     this.width = width;
     this.height = height;
     this.moves = new ArrayDeque<>();
+    this.board = new Character[height][width];
+  }
+  protected void clearBoard(){
+    // Sets up the initial Board as blank
+    for (int i = 0; i < width; i++) {
+      for (int j = 0; j < height; j++) {
+        board[j][i] = '.';
+      }
+    }
   }
 
   public int getHeight() {
@@ -25,7 +33,7 @@ public abstract class Board<S> implements IBoard<S> {
   }
 
   @Override
-  public int evaluate(Player p) {
+  public int customEvaluateFunction(Player p) {
     return 0;
   }
 
@@ -42,37 +50,5 @@ public abstract class Board<S> implements IBoard<S> {
     }
   }
 
-  @Override
-  public Set<S> getPossibleMoves(Player p) {
-    return new HashSet<>();
-  }
 
-  @Override
-  public boolean hasTied(Player p) {
-    return false;
-  }
-
-  @Override
-  public boolean hasWon(Player p) {
-    return false;
-  }
-
-  @Override
-  public boolean hasLost(Player p) {
-    return false;
-  }
-
-  @Override
-  public boolean isValidMove(S move, Player p) {
-    return false;
-  }
-
-  @Override
-  public void makeMove(S move, Player p) {}
-
-  @Override
-  public void undoMove(Player p) {}
-
-  @Override
-  public void drawBoard() {}
 }

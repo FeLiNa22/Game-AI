@@ -1,23 +1,31 @@
 package FourInARow;
 
-import Game.Board;
 import Game.Player;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FourInARowBoard extends Board<FourInARowMove> {
+public class Board extends Game.Board<Move> {
 
-  private Character[][] board;
-
-  public FourInARowBoard(int width, int height) {
+  public Board(int width, int height) {
     super(width, height);
-    this.board = new Character[height][width];
-    // Sets up the initial Game.Board
-    for (int i = 0; i < width; i++) {
-      for (int j = 0; j < height; j++) {
-        board[j][i] = '.';
-      }
+  }
+
+  @Override
+  public void drawBoard() {
+    for (int t = 0; t < width; t++) {
+      System.out.print((t + 1) + " ");
     }
+    System.out.println();
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        System.out.print(board[i][j] + " ");
+      }
+      System.out.println();
+    }
+    for (int t = 0; t < width; t++) {
+      System.out.print("- ");
+    }
+    System.out.println();
   }
 
   @Override
@@ -43,7 +51,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   }
 
   @Override
-  public boolean isValidMove(FourInARowMove move, Player p) {
+  public boolean isValidMove(Move move, Player p) {
     if (move.getCol() >= 0 && move.getCol() < width) {
       // returns true if column not full yet
       return board[0][move.getCol()] == '.';
@@ -53,7 +61,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   }
 
   @Override
-  public void makeMove(FourInARowMove move, Player p) {
+  public void makeMove(Move move, Player p) {
     moves.push(move);
     boolean stop = false;
     for (int j = 0; j < height; j++) {
@@ -69,7 +77,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   @Override
   public void undoMove(Player p) {
     if (!moves.isEmpty()) {
-      FourInARowMove prevMove = moves.poll();
+      Move prevMove = moves.poll();
       // Sets the top counter in a column back to '.'
       for (int j = 0; j < height; j++) {
         if (board[j][prevMove.getCol()] == p.getMark()) {
@@ -81,22 +89,15 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   }
 
   @Override
-  public void drawBoard() {
-    System.out.println("1 2 3 4 5 6");
-    for (int i = 0; i < height; i++) {
-      for (int j = 0; j < width; j++) {
-        System.out.print(board[i][j] + " ");
-      }
-      System.out.println();
-    }
-    System.out.println("-------------------------");
+  public void initialiseBoard(Player p1, Player p2) {
+    clearBoard();
   }
 
   @Override
-  public Set<FourInARowMove> getPossibleMoves(Player p) {
-    Set<FourInARowMove> possibleMoves = new HashSet<>();
+  public Set<Move> getPossibleMoves(Player p) {
+    Set<Move> possibleMoves = new HashSet<>();
     for (int i = 0; i < width; i++) {
-      FourInARowMove m = new FourInARowMove(i);
+      Move m = new Move(i);
       if (isValidMove(m, p)) {
         possibleMoves.add(m);
       }
@@ -105,15 +106,15 @@ public class FourInARowBoard extends Board<FourInARowMove> {
   }
 
   @Override
-  public int evaluate(Player p) {
-    return numOfNInRow(3,p) ;
+  public int customEvaluateFunction(Player p) {
+    return numOfNInRow(3, p) - numOfNInRow(3, p.getOpponent());
   }
 
   private int numOfNInRow(int nInARow, Player p) {
     int counter = 0;
     // Horizontal Win
     for (int j = 0; j < height; j++) {
-      for (int i = 0; i < width - (nInARow-1); i++) {
+      for (int i = 0; i < width - (nInARow - 1); i++) {
         boolean rowFound = true;
         for (int n = 0; n < nInARow; n++) {
           if (board[j][i + n] != p.getMark()) {
@@ -127,7 +128,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
     }
 
     // Vertical Win
-    for (int j = 0; j < height - (nInARow-1); j++) {
+    for (int j = 0; j < height - (nInARow - 1); j++) {
       for (int i = 0; i < width; i++) {
         boolean rowFound = true;
         for (int n = 0; n < nInARow; n++) {
@@ -141,8 +142,8 @@ public class FourInARowBoard extends Board<FourInARowMove> {
       }
     }
     // Diagonal top left -> bottom right
-    for (int j = 0; j < height - (nInARow-1); j++) {
-      for (int i = 0; i < width -(nInARow-1); i++) {
+    for (int j = 0; j < height - (nInARow - 1); j++) {
+      for (int i = 0; i < width - (nInARow - 1); i++) {
         boolean rowFound = true;
         for (int n = 0; n < nInARow; n++) {
           if (board[j + n][i + n] != p.getMark()) {
@@ -155,7 +156,7 @@ public class FourInARowBoard extends Board<FourInARowMove> {
       }
     }
     // Diagonal top right -> bottom left
-    for (int j = 0; j < height - (nInARow-1); j++) {
+    for (int j = 0; j < height - (nInARow - 1); j++) {
       for (int i = nInARow - 1; i < width; i++) {
         boolean rowFound = true;
         for (int n = 0; n < nInARow; n++) {

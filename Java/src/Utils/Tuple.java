@@ -1,4 +1,4 @@
-package AI;
+package Utils;
 
 public class Tuple<A, B> {
   private A a;

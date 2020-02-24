@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="working minimax">
+    <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Chess/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/PieceTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Pieces/Bishop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Pieces/Castle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Pieces/Empty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Pieces/King.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Pieces/Knight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Pieces/Pawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Pieces/Queen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chess/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FourInARow/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/PlayerTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AI/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AI/MiniMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/MiniMax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AI/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Tuple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/IBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/BoardTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +38,21 @@
   <component name="FavoritesManager">
     <favorites_list name="Java" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1XnbTCiiq3VmH6fbGW04f5qJD0M" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -84,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581742506281</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="working minimax">
+      <created>1582310439045</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582310439045</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

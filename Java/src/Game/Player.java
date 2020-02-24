@@ -1,11 +1,11 @@
 package Game;
 
-public abstract class Player<S> {
+public abstract class Player<S> implements PlayerTemplate<S>{
   private String name;
   private Player opponent;
   private Character mark;
 
-  public Player(String name) {
+  public Player (String name) {
     this.name = name;
   }
 
@@ -19,10 +19,6 @@ public abstract class Player<S> {
 
   public String getName() {
     return name;
-  }
-
-  public S getMove(Board<S> b) {
-    return null;
   }
 
   public Player<S> getOpponent() {
