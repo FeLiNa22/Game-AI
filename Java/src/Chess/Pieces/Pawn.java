@@ -1,23 +1,23 @@
 package Chess.Pieces;
 
 import Chess.Board;
+import Chess.Cords;
 import Chess.Piece;
-import Game.Player;
-import Utils.Tuple;
+import Chess.Player;
 
 public class Pawn extends Piece {
-  public Pawn(int x, int y, Board board, Player player) {
-    super(x, y, board, player);
+  public Pawn(Cords cords, Board board, Player player) {
+    super(cords, board, player);
     setMark('P');
   }
 
   @Override
-  public boolean validMove(Tuple<Integer, Integer> cords) {
-    int moveX = cords.getFirst();
-    int moveY = cords.getSecond();
+  public boolean validMove(Cords cords) {
+    int moveX = cords.getX();
+    int moveY = cords.getY();
     boolean top = x == moveX;
-    boolean right = x + 1 == moveX && board.getPiece(cords).getAssignedPlayer() == assignedPlayer;
-    boolean left = x - 1 == moveX && board.getPiece(cords).getAssignedPlayer() == assignedPlayer;
+    boolean right = x + 1 == moveX && board.getPiece(cords).getAssignedPlayer() == assignedPlayer.getOpponent();
+    boolean left = x - 1 == moveX && board.getPiece(cords).getAssignedPlayer() == assignedPlayer.getOpponent();
     return (y == moveY + 1) && (left || right || top);
   }
 }

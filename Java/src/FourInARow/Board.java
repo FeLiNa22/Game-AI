@@ -6,12 +6,16 @@ import java.util.Set;
 
 public class Board extends Game.Board<Move> {
 
-  public Board(int width, int height) {
-    super(width, height);
+  public Board(int width) {
+    super(width, 6);
   }
 
   @Override
   public void drawBoard() {
+    for (int t = 0; t < width; t++) {
+      System.out.print("--");
+    }
+    System.out.println();
     for (int t = 0; t < width; t++) {
       System.out.print((t + 1) + " ");
     }
@@ -23,13 +27,13 @@ public class Board extends Game.Board<Move> {
       System.out.println();
     }
     for (int t = 0; t < width; t++) {
-      System.out.print("- ");
+      System.out.print("--");
     }
     System.out.println();
   }
 
   @Override
-  public boolean hasTied(Player p) {
+  public boolean hasTied(Player<Move> p) {
     // If any of the top of the columns are empty
     // Then there still can be some possible moves
     for (int i = 0; i < width; i++) {
@@ -41,17 +45,17 @@ public class Board extends Game.Board<Move> {
   }
 
   @Override
-  public boolean hasWon(Player p) {
+  public boolean hasWon(Player<Move> p) {
     return numOfNInRow(4, p) > 0;
   }
 
   @Override
-  public boolean hasLost(Player p) {
+  public boolean hasLost(Player<Move> p) {
     return hasWon(p.getOpponent());
   }
 
   @Override
-  public boolean isValidMove(Move move, Player p) {
+  public boolean isValidMove(Move move, Player<Move> p) {
     if (move.getCol() >= 0 && move.getCol() < width) {
       // returns true if column not full yet
       return board[0][move.getCol()] == '.';
@@ -61,7 +65,7 @@ public class Board extends Game.Board<Move> {
   }
 
   @Override
-  public void makeMove(Move move, Player p) {
+  public void makeMove(Move move, Player<Move> p) {
     moves.push(move);
     boolean stop = false;
     for (int j = 0; j < height; j++) {
@@ -75,7 +79,7 @@ public class Board extends Game.Board<Move> {
   }
 
   @Override
-  public void undoMove(Player p) {
+  public void undoMove(Player<Move> p) {
     if (!moves.isEmpty()) {
       Move prevMove = moves.poll();
       // Sets the top counter in a column back to '.'
@@ -89,12 +93,12 @@ public class Board extends Game.Board<Move> {
   }
 
   @Override
-  public void initialiseBoard(Player p1, Player p2) {
+  public void initialiseBoard(Player<Move> p1, Player<Move> p2) {
     clearBoard();
   }
 
   @Override
-  public Set<Move> getPossibleMoves(Player p) {
+  public Set<Move> getPossibleMoves(Player<Move> p) {
     Set<Move> possibleMoves = new HashSet<>();
     for (int i = 0; i < width; i++) {
       Move m = new Move(i);
@@ -106,11 +110,11 @@ public class Board extends Game.Board<Move> {
   }
 
   @Override
-  public int customEvaluateFunction(Player p) {
+  public int customEvaluateFunction(Player<Move> p) {
     return numOfNInRow(3, p) - numOfNInRow(3, p.getOpponent());
   }
 
-  private int numOfNInRow(int nInARow, Player p) {
+  private int numOfNInRow(int nInARow, Player<Move> p) {
     int counter = 0;
     // Horizontal Win
     for (int j = 0; j < height; j++) {
@@ -119,6 +123,7 @@ public class Board extends Game.Board<Move> {
         for (int n = 0; n < nInARow; n++) {
           if (board[j][i + n] != p.getMark()) {
             rowFound = false;
+            break;
           }
         }
         if (rowFound) {
@@ -134,6 +139,7 @@ public class Board extends Game.Board<Move> {
         for (int n = 0; n < nInARow; n++) {
           if (board[j + n][i] != p.getMark()) {
             rowFound = false;
+            break;
           }
         }
         if (rowFound) {
@@ -148,6 +154,7 @@ public class Board extends Game.Board<Move> {
         for (int n = 0; n < nInARow; n++) {
           if (board[j + n][i + n] != p.getMark()) {
             rowFound = false;
+            break;
           }
         }
         if (rowFound) {
@@ -162,6 +169,7 @@ public class Board extends Game.Board<Move> {
         for (int n = 0; n < nInARow; n++) {
           if (board[j + n][i - n] != p.getMark()) {
             rowFound = false;
+            break;
           }
         }
         if (rowFound) {

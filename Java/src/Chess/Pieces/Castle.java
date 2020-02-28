@@ -1,20 +1,20 @@
 package Chess.Pieces;
 
 import Chess.Board;
+import Chess.Cords;
 import Chess.Piece;
-import Game.Player;
-import Utils.Tuple;
+import Chess.Player;
 
 public class Castle extends Piece {
-  public Castle(int x, int y, Board board, Player player) {
-    super(x, y, board, player);
+  public Castle(Cords cords, Board board, Player player) {
+    super(cords, board, player);
     setMark('C');
   }
 
   @Override
-  public boolean validMove(Tuple<Integer, Integer> cords) {
-    int moveX = cords.getFirst();
-    int moveY = cords.getSecond();
+  public boolean validMove(Cords cords) {
+    int moveX = cords.getX();
+    int moveY = cords.getY();
     return y == moveY || x == moveX;
   }
 }

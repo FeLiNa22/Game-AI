@@ -3,10 +3,10 @@ package Game;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public abstract class Board<S> implements BoardTemplate<S> {
+public abstract class Board<Move> implements BoardTemplate<Move> {
   protected int height;
   protected int width;
-  protected Deque<S> moves;
+  protected Deque<Move> moves;
   protected Character[][] board;
 
   public Board(int width, int height) {
@@ -24,21 +24,13 @@ public abstract class Board<S> implements BoardTemplate<S> {
     }
   }
 
-  public int getHeight() {
-    return height;
-  }
-
-  public int getWidth() {
-    return width;
-  }
-
   @Override
-  public int customEvaluateFunction(Player p) {
+  public int customEvaluateFunction(Player<Move> p) {
     return 0;
   }
 
   @Override
-  public Status getStatus(Player p) {
+  public Status getStatus(Player<Move> p) {
     if (hasWon(p)) {
       return Status.WIN;
     } else if (hasLost(p)) {

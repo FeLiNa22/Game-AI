@@ -1,7 +1,6 @@
 package Chess;
 
 import Utils.Tuple;
-import Game.Player;
 
 public abstract class Piece implements PieceTemplate {
   protected int x;
@@ -10,11 +9,13 @@ public abstract class Piece implements PieceTemplate {
   protected Board board;
   protected Player assignedPlayer;
 
-  public Piece(int x, int y, Board board, Player player) {
-    this.x = x;
-    this.y = y;
+  public Piece(Cords cords, Board board, Player player) {
+    this.x = cords.getX();
+    this.y = cords.getY();
     this.board = board;
     this.assignedPlayer = player;
+    player.addToCollection(this);
+    this.mark = '.';
   }
 
   public Player getAssignedPlayer() {
@@ -29,17 +30,13 @@ public abstract class Piece implements PieceTemplate {
     this.mark = mark;
   }
 
-  public int getX() {
-    return x;
+  public Cords getCords() {
+    return new Cords(x,y);
   }
 
-  public int getY() {
-    return y;
-  }
-
-  public void moveTo(Tuple<Integer, Integer> cords) {
-    this.x = cords.getFirst();
-    this.y = cords.getSecond();
+  public void moveTo(Cords cords) {
+    this.x = cords.getX();
+    this.y = cords.getY();
   }
 
 }

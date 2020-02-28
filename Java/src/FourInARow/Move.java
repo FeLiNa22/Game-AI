@@ -11,4 +11,10 @@ public class Move {
   int getCol(){
     return col;
   }
+
+  @Override
+  public String toString() {
+    return
+        "in col : " + col;
+  }
 }

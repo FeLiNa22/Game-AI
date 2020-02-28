@@ -1,8 +1,8 @@
 package Game;
 
-public abstract class Player<S> implements PlayerTemplate<S>{
+public abstract class Player<Move> implements PlayerTemplate<Move>{
   private String name;
-  private Player opponent;
+  private Player<Move> opponent;
   private Character mark;
 
   public Player (String name) {
@@ -21,11 +21,11 @@ public abstract class Player<S> implements PlayerTemplate<S>{
     return name;
   }
 
-  public Player<S> getOpponent() {
+  public Player<Move> getOpponent() {
     return opponent;
   }
 
-  public void setOpponent(Player<S> opponent) {
+  public void setOpponent(Player<Move> opponent) {
     this.opponent = opponent;
   }
 }

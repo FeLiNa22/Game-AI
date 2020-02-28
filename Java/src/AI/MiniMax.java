@@ -1,6 +1,6 @@
 package AI;
 
-import Game.BoardTemplate;
+import Game.Board;
 import Game.Player;
 import Game.Status;
 import Utils.Tuple;
@@ -9,8 +9,8 @@ public class MiniMax<S> {
   private final int MIN;
   private final int MAX;
   private int maxDepth;
-  private BoardTemplate<S> board;
-  private Player player;
+  private Board<S> board;
+  private Player<S> player;
 
   public MiniMax(int maxDepth, int alpha, int beta) {
     this.maxDepth = maxDepth;
@@ -18,7 +18,7 @@ public class MiniMax<S> {
     this.MAX = beta;
   }
 
-  public S getOptimalMove(BoardTemplate<S> board, Player player) {
+  public S getOptimalMove(Board<S> board, Player<S> player) {
     this.board = board;
     this.player = player;
     return minimax(0, MIN, MAX, true).getSecond();

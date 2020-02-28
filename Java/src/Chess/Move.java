@@ -3,11 +3,11 @@ package Chess;
 import Utils.Tuple;
 
 public class Move {
-  private Tuple<Integer, Integer> from;
-  private Tuple<Integer, Integer> to;
+  private Cords from;
+  private Cords to;
   private Piece piece;
 
-  Move(Tuple<Integer, Integer> from, Tuple<Integer, Integer> to, Board chess) {
+  Move(Cords from, Cords to, Board chess) {
     this.from = from;
     this.to = to;
     this.piece = chess.getPiece(to);
@@ -17,11 +17,18 @@ public class Move {
     return piece;
   }
 
-  public Tuple<Integer, Integer> getFrom() {
+  public Cords getFrom() {
     return from;
   }
 
-  public Tuple<Integer, Integer> getTo() {
+  public Cords getTo() {
     return to;
+  }
+
+  @Override
+  public String toString() {
+    return "from=" + from +
+        ", to=" + to +
+        (piece.getMark() == '.' ? ", taken piece=" + piece : "") ;
   }
 }

@@ -2,27 +2,27 @@ package Game;
 
 import java.util.Set;
 
-public interface BoardTemplate<S> {
+public interface BoardTemplate<Move> {
 
-  Status getStatus(Player p);
+  Status getStatus(Player<Move> p);
 
-  boolean hasTied(Player p);
+  boolean hasTied(Player<Move>  p);
 
-  boolean hasWon(Player p);
+  boolean hasWon(Player<Move>  p);
 
-  boolean hasLost(Player p);
+  boolean hasLost(Player<Move>  p);
 
-  boolean isValidMove(S move, Player p);
+  boolean isValidMove(Move move, Player<Move>  p);
 
-  void makeMove(S move, Player p);
+  void makeMove(Move move, Player<Move>  p);
 
-  void undoMove(Player p);
+  void undoMove(Player<Move>  p);
 
   void drawBoard();
 
-  void initialiseBoard(Player p1, Player p2);
+  void initialiseBoard(Player<Move>  p1, Player<Move>  p2);
 
-  Set<S> getPossibleMoves(Player p);
+  Set<Move> getPossibleMoves(Player<Move>  p);
 
-  int customEvaluateFunction(Player p);
+  int customEvaluateFunction(Player<Move>  p);
 }
