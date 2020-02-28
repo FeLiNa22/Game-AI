@@ -4,9 +4,9 @@ import Chess.Board;
 import Chess.Cords;
 import Chess.Piece;
 import Chess.Player;
-import Utils.Tuple;
 
 public class King extends Piece {
+
   public King(Cords cords, Board board, Player player) {
     super(cords, board, player);
     setMark('*');

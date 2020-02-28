@@ -64,15 +64,15 @@ public class Board extends Game.Board<Move> {
   public boolean isValidMove(Move move, Player<Move> p) {
     Cords from = move.getFrom();
     Cords to = move.getTo();
-    if (isInBounds(from) && isInBounds(to) && !isBlocked(to,p) && !to.equals(from)) {
+    if (isInBounds(from) && isInBounds(to) && !isBlocked(to, p) && !to.equals(from)) {
       return getPiece(from).validMove(to);
     } else {
       return false;
     }
   }
 
-  private boolean isBlocked(Cords cords, Player<Move> p){
-    if(isInBounds(cords)) {
+  private boolean isBlocked(Cords cords, Player<Move> p) {
+    if (isInBounds(cords)) {
       return getPiece(cords).getAssignedPlayer() == p;
     }
     return false;
@@ -91,8 +91,8 @@ public class Board extends Game.Board<Move> {
     Cords from = move.getFrom();
     getPiece(from).moveTo(to);
     PieceBoard[to.getY()][to.getX()] = PieceBoard[from.getY()][from.getX()];
-    PieceBoard[from.getY()][from.getX()] =
-        new Empty(from, this);
+    PieceBoard[from.getY()][from.getX()] = new Empty(from, this);
+    move.getPiece().deactivate();
   }
 
   @Override
@@ -104,6 +104,7 @@ public class Board extends Game.Board<Move> {
     getPiece(to).moveTo(from);
     PieceBoard[from.getY()][from.getX()] = PieceBoard[to.getY()][to.getX()];
     PieceBoard[to.getY()][to.getX()] = move.getPiece();
+    move.getPiece().activate();
   }
 
   @Override
@@ -113,20 +114,26 @@ public class Board extends Game.Board<Move> {
     // Castles
     PieceBoard[y][x] = new Castle(new Cords(x, y), this, (Chess.Player) p2);
     PieceBoard[y][width - 1 - x] = new Castle(new Cords(width - 1 - x, y), this, (Chess.Player) p2);
-    PieceBoard[height - 1 - y][x] = new Castle(new Cords(x, height - 1 - y), this, (Chess.Player) p1);
-    PieceBoard[height - 1 - y][width - 1 - x] = new Castle(new Cords(width - 1 - x, height - 1 - y), this,(Chess.Player)  p1);
+    PieceBoard[height - 1 - y][x] = new Castle(new Cords(x, height - 1 - y), this,
+        (Chess.Player) p1);
+    PieceBoard[height - 1 - y][width - 1 - x] = new Castle(new Cords(width - 1 - x, height - 1 - y),
+        this, (Chess.Player) p1);
     x += 1;
     // Knights
     PieceBoard[y][x] = new Knight(new Cords(x, y), this, (Chess.Player) p2);
-    PieceBoard[y][width - 1 - x] = new Knight(new Cords(width - 1 - x, y),this, (Chess.Player) p2);
-    PieceBoard[height - 1 - y][x] = new Knight(new Cords(x,height - 1 - y), this, (Chess.Player) p1);
-    PieceBoard[height - 1 - y][width - 1 - x] = new Knight(new Cords(width - 1 - x, height - 1 - y),this, (Chess.Player) p1);
+    PieceBoard[y][width - 1 - x] = new Knight(new Cords(width - 1 - x, y), this, (Chess.Player) p2);
+    PieceBoard[height - 1 - y][x] = new Knight(new Cords(x, height - 1 - y), this,
+        (Chess.Player) p1);
+    PieceBoard[height - 1 - y][width - 1 - x] = new Knight(new Cords(width - 1 - x, height - 1 - y),
+        this, (Chess.Player) p1);
     x += 1;
     // Bishops
     PieceBoard[y][x] = new Bishop(new Cords(x, y), this, (Chess.Player) p2);
     PieceBoard[y][width - 1 - x] = new Bishop(new Cords(width - 1 - x, y), this, (Chess.Player) p2);
-    PieceBoard[height - 1 - y][x] = new Bishop(new Cords(x, height - 1 - y), this, (Chess.Player) p1);
-    PieceBoard[height - 1 - y][width - 1 - x] = new Bishop(new Cords(width - 1 - x, height - 1 - y), this,  (Chess.Player) p1);
+    PieceBoard[height - 1 - y][x] = new Bishop(new Cords(x, height - 1 - y), this,
+        (Chess.Player) p1);
+    PieceBoard[height - 1 - y][width - 1 - x] = new Bishop(new Cords(width - 1 - x, height - 1 - y),
+        this, (Chess.Player) p1);
     x += 1;
     // King
     PieceBoard[y][x] = new King(new Cords(x, y), this, (Chess.Player) p2);
@@ -134,7 +141,8 @@ public class Board extends Game.Board<Move> {
     x += 1;
     // Queen
     PieceBoard[y][x] = new Queen(new Cords(x, y), this, (Chess.Player) p2);
-    PieceBoard[height - 1 - y][x] = new Queen(new Cords(x, height - 1 - y), this, (Chess.Player) p1);
+    PieceBoard[height - 1 - y][x] = new Queen(new Cords(x, height - 1 - y), this,
+        (Chess.Player) p1);
     // Pawns
     for (int i = 0; i < width; i++) {
       PieceBoard[1][i] = new Pawn(new Cords(i, 1), this, (Chess.Player) p2);
@@ -157,13 +165,31 @@ public class Board extends Game.Board<Move> {
         for (Piece piece : chessPlayer.getCollection()) {
           Cords from = piece.getCords();
           Cords to = new Cords(i, j);
-          Move move = new Move(from,to,this);
-          if (isValidMove(move,p)) {
+          Move move = new Move(from, to, this);
+          if (isValidMove(move, p)) {
             possibleMoves.add(move);
           }
         }
       }
     }
     return possibleMoves;
+  }
+
+  @Override
+  public int customEvaluateFunction(Player<Move> p) {
+    int score = 0;
+    Chess.Player p1 = (Chess.Player) p;
+    Chess.Player p2 = (Chess.Player) p.getOpponent();
+    for (Piece piece : p1.getCollection()) {
+      if (piece.isActive()) {
+        score += 10;
+      }
+    }
+    for (Piece piece : p2.getCollection()) {
+      if (piece.isActive()) {
+        score -= 10;
+      }
+    }
+    return score;
   }
 }

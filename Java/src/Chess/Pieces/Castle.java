@@ -6,6 +6,7 @@ import Chess.Piece;
 import Chess.Player;
 
 public class Castle extends Piece {
+
   public Castle(Cords cords, Board board, Player player) {
     super(cords, board, player);
     setMark('C');

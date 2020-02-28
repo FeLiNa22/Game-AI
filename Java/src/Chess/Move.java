@@ -1,8 +1,7 @@
 package Chess;
 
-import Utils.Tuple;
-
 public class Move {
+
   private Cords from;
   private Cords to;
   private Piece piece;
@@ -27,8 +26,8 @@ public class Move {
 
   @Override
   public String toString() {
-    return "from=" + from +
-        ", to=" + to +
-        (piece.getMark() == '.' ? ", taken piece=" + piece : "") ;
+    return "from :" + from +
+        ", to : " + to +
+        (piece.getMark() == '.' ? "" : ", taken piece=" + piece.getMark());
   }
 }

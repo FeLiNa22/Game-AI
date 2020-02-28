@@ -24,10 +24,6 @@ public abstract class Board<Move> implements BoardTemplate<Move> {
     }
   }
 
-  @Override
-  public int customEvaluateFunction(Player<Move> p) {
-    return 0;
-  }
 
   @Override
   public Status getStatus(Player<Move> p) {

@@ -1,19 +1,20 @@
 package Chess;
 
-import Utils.Tuple;
+import Game.Board;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-import Game.Board;
 
 public class Player extends Game.Player<Move> {
+
   private Set<Piece> collection;
+
   public Player(String name) {
     super(name);
     this.collection = new HashSet<>();
   }
 
-  public void addToCollection(Piece piece){
+  public void addToCollection(Piece piece) {
     collection.add(piece);
   }
 
@@ -31,8 +32,8 @@ public class Player extends Game.Player<Move> {
   }
 
   private Cords parseMove(String move) {
-    int x = move.charAt(0) - 'a' + 1;
-    int y = Character.getNumericValue(move.charAt(1));
+    int x = move.charAt(0) - 'a';
+    int y = Character.getNumericValue(move.charAt(1)) - 1;
     return new Cords(x, y);
   }
 }

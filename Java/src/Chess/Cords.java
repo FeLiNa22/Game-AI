@@ -20,7 +20,7 @@ public class Cords {
 
   @Override
   public String toString() {
-    return "(" + ((char) (getX() + 'a')) + "," + (getY() + 1) + ")";
+    return "(" + ((char) (getX() + 'a')) + (getY() + 1) + ")";
   }
 
   public boolean equals(Cords cords) {
