@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/AI/TicTacToeAgent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TicTacToe/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TicTacToe/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TicTacToe/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/TicTacToeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Cords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/PieceTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/PieceTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Castle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Empty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ChessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChessTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FourInARowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FourInARowTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,6 +38,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="AI" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -61,7 +56,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ChessTest">
+  <component name="RunManager" selected="Application.TicTacToeTest">
     <configuration name="ChessTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChessTest" />
       <module name="Game-AI" />
@@ -83,8 +78,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TicTacToeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TicTacToeTest" />
+      <module name="Game-AI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TicTacToeTest" />
         <item itemvalue="Application.ChessTest" />
         <item itemvalue="Application.FourInARowTest" />
         <item itemvalue="Application.Main" />
@@ -130,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582513848374</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ChessBoard AI is working">
+      <created>1582948409901</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1582948409901</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +160,7 @@
     <MESSAGE value="Done need to implement miniMax and AI now" />
     <MESSAGE value="working minimax" />
     <MESSAGE value="Making ChessBoard game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making ChessBoard game" />
+    <MESSAGE value="ChessBoard AI is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="ChessBoard AI is working" />
   </component>
 </project>
