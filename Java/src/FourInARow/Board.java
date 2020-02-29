@@ -111,7 +111,7 @@ public class Board extends Game.Board<Move> {
 
   @Override
   public int customEvaluateFunction(Player<Move> p) {
-    return numOfNInRow(3, p) - numOfNInRow(3, p.getOpponent());
+    return 0;//numOfNInRow(3, p) - numOfNInRow(3, p.getOpponent());
   }
 
   private int numOfNInRow(int nInARow, Player<Move> p) {

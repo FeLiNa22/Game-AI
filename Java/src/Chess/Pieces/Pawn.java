@@ -1,26 +1,31 @@
 package Chess.Pieces;
 
 import Chess.Board;
-import Chess.Cords;
+import Chess.Move;
+import Chess.Point;
 import Chess.Piece;
 import Chess.Player;
 
 public class Pawn extends Piece {
 
-  public Pawn(Cords cords, Board board, Player player) {
-    super(cords, board, player);
+  public Pawn(Point point, Board board, Player player) {
+    super(point, board, player);
     setMark('P');
   }
 
   @Override
-  public boolean validMove(Cords cords) {
-    int moveX = cords.getX();
-    int moveY = cords.getY();
-    boolean top = x == moveX;
-    boolean right =
-        x + 1 == moveX && board.getPiece(cords).getAssignedPlayer() == assignedPlayer.getOpponent();
-    boolean left =
-        x - 1 == moveX && board.getPiece(cords).getAssignedPlayer() == assignedPlayer.getOpponent();
-    return (y == moveY + 1) && (left || right || top);
+  public boolean validMove(Move move) {
+      int moveX = move.getTo().getX();
+      int moveY = move.getTo().getY();
+      boolean top = point.getX() == moveX
+          && move.getPiece().getMark() == '.';
+      boolean right =
+          point.getX() == moveX + 1
+              && move.getPiece().getAssignedPlayer() == assignedPlayer.getOpponent();
+      boolean left =
+          point.getX()  == moveX - 1
+              && move.getPiece().getAssignedPlayer() == assignedPlayer.getOpponent();
+      return ((point.getY() == moveY - assignedPlayer.getDirection()) && (left || right || top))
+          || (firstMove && top && (point.getY() == moveY - 2 * assignedPlayer.getDirection()));
   }
 }

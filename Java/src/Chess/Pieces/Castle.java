@@ -1,21 +1,20 @@
 package Chess.Pieces;
 
 import Chess.Board;
-import Chess.Cords;
+import Chess.Move;
 import Chess.Piece;
 import Chess.Player;
+import Chess.Point;
 
 public class Castle extends Piece {
 
-  public Castle(Cords cords, Board board, Player player) {
-    super(cords, board, player);
+  public Castle(Point point, Board board, Player player) {
+    super(point, board, player);
     setMark('C');
   }
 
   @Override
-  public boolean validMove(Cords cords) {
-    int moveX = cords.getX();
-    int moveY = cords.getY();
-    return y == moveY || x == moveX;
+  public boolean validMove(Move move) {
+    return checkHorizontal(move) || checkVertical(move);
   }
 }

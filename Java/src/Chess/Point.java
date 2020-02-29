@@ -2,11 +2,11 @@ package Chess;
 
 import Utils.Tuple;
 
-public class Cords {
+public class Point {
 
   private Tuple<Integer, Integer> cords;
 
-  public Cords(int x, int y) {
+  public Point(int x, int y) {
     cords = new Tuple<>(x, y);
   }
 
@@ -23,7 +23,14 @@ public class Cords {
     return "(" + ((char) (getX() + 'a')) + (getY() + 1) + ")";
   }
 
-  public boolean equals(Cords cords) {
-    return (getX() == cords.getX() && getY() == cords.getY());
+  public boolean equals(Point point) {
+    return (getX() == point.getX() && getY() == point.getY());
   }
+
+  public Point add(Point point) {
+    return new Point(getX() + point.getX(), getY() + point.getY());
+  }
+
+
+
 }

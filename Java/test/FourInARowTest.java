@@ -7,9 +7,9 @@ import Game.*;
 public class FourInARowTest {
 
   public static void main(String[] args) {
-    FourInARowAgent p1 = new FourInARowAgent("AI",12);
-    Player p2 = new Player("Random Player");
-    Board board = new Board(6);
+    FourInARowAgent p1 = new FourInARowAgent("AI-1",4);
+    FourInARowAgent p2 = new FourInARowAgent("AI-2",4);
+    Board board = new Board(40);
     Game<Move> game = new Game<Move>("Chess", p1, p2, board);
     game.run();
   }

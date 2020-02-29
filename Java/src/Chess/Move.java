@@ -2,25 +2,31 @@ package Chess;
 
 public class Move {
 
-  private Cords from;
-  private Cords to;
+  private Point from;
+  private Point to;
   private Piece piece;
+  private boolean firstMoveAvailable;
 
-  Move(Cords from, Cords to, Board chess) {
+  Move(Point from, Point to, Board board) {
     this.from = from;
+    firstMoveAvailable = board.getPiece(from).isFirstMove();
     this.to = to;
-    this.piece = chess.getPiece(to);
+    this.piece = board.getPiece(to);
+  }
+
+  public boolean getFirstMoveAvailable() {
+    return firstMoveAvailable;
   }
 
   public Piece getPiece() {
     return piece;
   }
 
-  public Cords getFrom() {
+  public Point getFrom() {
     return from;
   }
 
-  public Cords getTo() {
+  public Point getTo() {
     return to;
   }
 

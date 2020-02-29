@@ -6,12 +6,29 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Player extends Game.Player<Move> {
-
+  private int direction;
   private Set<Piece> collection;
+  private String color;
 
   public Player(String name) {
     super(name);
     this.collection = new HashSet<>();
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public void setDirection(int direction) {
+    this.direction = direction;
+  }
+
+  public int getDirection() {
+    return direction;
   }
 
   public void addToCollection(Piece piece) {
@@ -31,9 +48,9 @@ public class Player extends Game.Player<Move> {
     return new Move(parseMove(from), parseMove(to), (Chess.Board) b);
   }
 
-  private Cords parseMove(String move) {
+  private Point parseMove(String move) {
     int x = move.charAt(0) - 'a';
     int y = Character.getNumericValue(move.charAt(1)) - 1;
-    return new Cords(x, y);
+    return new Point(x, y);
   }
 }

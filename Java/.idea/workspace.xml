@@ -2,18 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/Agent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/FourInARowPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MiniMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/MiniMax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI/Tuple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Cords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/PieceTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/PieceTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Castle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Empty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FourInARow/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourInARow/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChessTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FourInARowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FourInARowTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,13 +29,25 @@
   <component name="FavoritesManager">
     <favorites_list name="Java" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1XnbTCiiq3VmH6fbGW04f5qJD0M" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -44,7 +61,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ChessTest">
+    <configuration name="ChessTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ChessTest" />
+      <module name="Game-AI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FourInARowTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FourInARowTest" />
+      <module name="Game-AI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Game-AI" />
@@ -54,6 +85,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChessTest" />
+        <item itemvalue="Application.FourInARowTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -76,7 +109,28 @@
       <option name="project" value="LOCAL" />
       <updated>1581702161198</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="working minimax">
+      <created>1581742506280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581742506281</updated>
+    </task>
+    <task id="LOCAL-00003" summary="working minimax">
+      <created>1582310439045</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582310439045</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Making ChessBoard game">
+      <created>1582513848374</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1582513848374</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,6 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Done need to implement miniMax and AI now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done need to implement miniMax and AI now" />
+    <MESSAGE value="working minimax" />
+    <MESSAGE value="Making ChessBoard game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Making ChessBoard game" />
   </component>
 </project>

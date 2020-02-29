@@ -1,22 +1,21 @@
 package Chess.Pieces;
 
 import Chess.Board;
-import Chess.Cords;
+import Chess.Move;
+import Chess.Point;
 import Chess.Piece;
 import Chess.Player;
+import java.util.Optional;
 
 public class Bishop extends Piece {
 
-  public Bishop(Cords cords, Board board, Player player) {
-    super(cords, board, player);
+  public Bishop(Point point, Board board, Player player) {
+    super(point, board, player);
     setMark('B');
   }
 
   @Override
-  public boolean validMove(Cords cords) {
-    int moveX = cords.getX();
-    int moveY = cords.getY();
-    int diagonal = (moveX - x != 0) ? (moveY - y) / (moveX - x) : 0;
-    return diagonal == 1 || diagonal == -1;
+  public boolean validMove(Move move) {
+    return checkMainDiagonal(move) || checkSecondDiagonal(move);
   }
 }

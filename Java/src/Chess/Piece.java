@@ -1,22 +1,31 @@
 package Chess;
 
+
 public abstract class Piece implements PieceTemplate {
 
-  protected int x;
-  protected int y;
+  protected Point point;
   protected Character mark;
   protected Board board;
   protected Player assignedPlayer;
-  protected boolean active;
+  private boolean active;
+  protected boolean firstMove;
 
-  public Piece(Cords cords, Board board, Player player) {
-    this.x = cords.getX();
-    this.y = cords.getY();
+  public Piece(Point point, Board board, Player player) {
+    this.point = point;
     this.board = board;
-    this.assignedPlayer = player;
+    assignedPlayer = player;
     player.addToCollection(this);
-    this.mark = '.';
+    mark = '.';
+    firstMove = true;
     active = true;
+  }
+
+  public boolean isFirstMove() {
+    return firstMove;
+  }
+
+  public void setFirstMove(boolean firstMove) {
+    this.firstMove = firstMove;
   }
 
   public Player getAssignedPlayer() {
@@ -31,24 +40,99 @@ public abstract class Piece implements PieceTemplate {
     this.mark = mark;
   }
 
-  public Cords getCords() {
-    return new Cords(x, y);
+  public Point getCords() {
+    return point;
   }
 
-  public void moveTo(Cords cords) {
-    this.x = cords.getX();
-    this.y = cords.getY();
+  public void updateCords(Point point) {
+    this.point = point;
   }
 
   public void activate() {
-    active =true;
+    active = true;
   }
 
   public void deactivate() {
-    active =false;
+    active = false;
   }
 
   public boolean isActive() {
     return active;
+  }
+
+  public boolean checkVertical(Move move) {
+    Point from = move.getFrom();
+    Point to = move.getTo();
+    if (from.getX() == to.getX()) {
+      if (from.getY() <= to.getY()) {
+        return validateSteps(move,new Point(0, 1));
+      } else {
+        return validateSteps(move,new Point(0, -1));
+      }
+    } else {
+      return false;
+    }
+  }
+
+  public boolean checkHorizontal(Move move) {
+    Point from = move.getFrom();
+    Point to = move.getTo();
+    if (from.getY() == to.getY()) {
+      if (from.getX() <= to.getX()) {
+        return validateSteps(move,new Point(1, 0));
+      } else {
+        return validateSteps(move,new Point(-1, 0));
+      }
+    } else {
+      return false;
+    }
+  }
+
+  public boolean checkMainDiagonal(Move move) {
+    Point from = move.getFrom();
+    Point to = move.getTo();
+    if(to.getX() - from.getX() == 0){
+      return false;
+    }
+    if (((float) (to.getY() - from.getY()) / (to.getX() - from.getX())) == 1) {
+      if (from.getY() <= to.getY()) {
+        return validateSteps(move,new Point(1, 1));
+      } else {
+        return validateSteps(move,new Point(-1, -1));
+      }
+    } else {
+      return false;
+    }
+  }
+
+  public boolean checkSecondDiagonal(Move move) {
+    Point from = move.getFrom();
+    Point to = move.getTo();
+    if(to.getX() - from.getX() == 0){
+      return false;
+    }
+    if (((float) (to.getY() - from.getY()) / (to.getX() - from.getX())) == -1) {
+      if (from.getY() <= to.getY()) {
+        return validateSteps(move,new Point(-1, 1));
+      } else {
+        return validateSteps(move,new Point(1, -1));
+      }
+    } else {
+      return false;
+    }
+  }
+
+   private boolean validateSteps(Move move, Point dir) {
+    Point point = move.getFrom();
+     while (true) {
+       point = point.add(dir);
+       if(point.equals(move.getTo())){
+         break;
+       }
+       if (board.getPiece(point).getMark() != '.') {
+        return false;
+      }
+    }
+    return true;
   }
 }
