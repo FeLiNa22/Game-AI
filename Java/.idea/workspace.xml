@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bdf5662-b071-4a3f-874e-d43d6a793b50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AI/TicTacToeAgent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TicTacToe/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TicTacToe/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TicTacToe/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/TicTacToeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ChessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ChessTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TicTacToeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TicTacToeTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TicTacToeTest">
+  <component name="RunManager" selected="Application.ChessTest">
     <configuration name="ChessTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChessTest" />
       <module name="Game-AI" />
@@ -87,8 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TicTacToeTest" />
         <item itemvalue="Application.ChessTest" />
+        <item itemvalue="Application.TicTacToeTest" />
         <item itemvalue="Application.FourInARowTest" />
         <item itemvalue="Application.Main" />
       </list>
@@ -140,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582948409901</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="TicTacToeAI is working">
+      <created>1582950542229</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1582950542229</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +165,10 @@
     <MESSAGE value="working minimax" />
     <MESSAGE value="Making ChessBoard game" />
     <MESSAGE value="ChessBoard AI is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="ChessBoard AI is working" />
+    <MESSAGE value="TicTacToeAI is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="TicTacToeAI is working" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Java$ChessTest.ic" NAME="ChessTest Coverage Results" MODIFIED="1583082598514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
